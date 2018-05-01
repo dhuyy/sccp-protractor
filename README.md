@@ -24,7 +24,7 @@
 
 #### ```openMenu```
 ```javascript
-sccp.openMenu('cadastros'); // parâmetro em PT-BR
+sccp.openMenu('cadastros'); // parâmetro em pt-BR
 sccp.openMenu('registers'); // parâmetro em EN
 ```
 
