@@ -1,0 +1,18 @@
+{
+  "name": "sccp-protractor",
+  "main": "index.js",
+  "homepage": "https://github.com/dhuyy/sccp-protractor",
+  "authors": [
+    "Vandhuy F Martins <vandhuy@gmail.com>"
+  ],
+  "description": "A tool to assist in writing e2e tests of the SCCP system",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
