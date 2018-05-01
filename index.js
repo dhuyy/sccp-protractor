@@ -7,7 +7,8 @@ const config = require('./config');
  * Main helpers
  */
 const {
-  openMenu
+  openMenu,
+  selectSubmenu
 } = require('./helpers/main')(config);
 
 /**
@@ -24,5 +25,6 @@ module.exports = {
   logInWithUsernameAndPassword,
   logInWithRole,
   logOut,
-  openMenu
+  openMenu,
+  selectSubmenu
 };
