@@ -8,7 +8,8 @@ const config = require('./config');
  */
 const {
   openMenu,
-  selectSubmenu
+  selectSubmenu,
+  isMenuVisible
 } = require('./helpers/main')(config);
 
 /**
@@ -34,5 +35,6 @@ module.exports = {
   logOut,
   openMenu,
   selectSubmenu,
+  isMenuVisible,
   disableHelpModalIfVisible
 };

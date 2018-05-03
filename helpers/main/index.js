@@ -16,6 +16,14 @@ function mainHelpers(config) {
       if (submenuElement) {
         element(by.id(submenuElement.id)).click();
       }
+    },
+
+    isMenuVisible: function(menuNameParam) {
+      const selectedMenu = config.internals.menus.filter(menu => {
+        return menu.name === menuNameParam;
+      })[0];
+
+      return element(by.id(selectedMenu.id)).isPresent();
     }
   };
 }

@@ -9,6 +9,7 @@
 | ------ | ------ |
 | [openMenu](#openmenu) | Abre um item do menu principal. |
 | [selectSubmenu](#selectsubmenu) | Seleciona um item do submenu. |
+| [isMenuVisible](#ismenuvisible) | Verifica se um item de menu está visível. |
 
 `Login`
 
@@ -71,6 +72,17 @@ sccpE2E.selectSubmenu('periods');
 
 sccpE2E.openMenu('inputOutput'); // Necessário para o método abaixo funcionar
 sccpE2E.selectSubmenu('inputOutputProportional');
+```
+
+#### ```isMenuVisible```
+Este método verifica se um item de menu está visível.
+
+*Obs.: Este método deve ser invocado dentro de um expect().*
+
+```javascript
+expect(sccpE2E.isMenuVisible('registers')).toEqual(true); // PASS - Se o menu estiver visível
+
+expect(sccpE2E.isMenuVisible('inputOutput')).toEqual(false); // PASS - Se o menu não estiver visível
 ```
 
 #### ```logInWithUsernameAndPassword```
