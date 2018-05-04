@@ -7,9 +7,16 @@
 
 | Helper | Descrição |
 | ------ | ------ |
+| [openWebPage](#openwebpage) | Acessa o endereço *localhost:3000*. |
 | [openMenu](#openmenu) | Abre um item do menu principal. |
 | [selectSubmenu](#selectsubmenu) | Seleciona um item do submenu. |
 | [isMenuVisible](#ismenuvisible) | Verifica se um item de menu está visível. |
+
+`Database`
+
+| Helper | Descrição |
+| ------ | ------ |
+| [dropDatabase](#dropdatabase) | Requisita uma limpeza do banco de dados ao servidor. |
 
 `Login`
 
@@ -30,6 +37,29 @@
 ### Documentação
 ----------------
 
+<!---
+-
+- openWebPage
+-
+-->
+
+#### ```openWebPage```
+Este método acessa o endereço http://localhost:3000 na barra de endereços do browser.
+
+*Obs.: Normalmente este método só é invocado dentro de um beforeAll().*
+
+```javascript
+beforeAll() {
+  sccpE2E.openWebPage();
+}
+```
+
+<!---
+-
+- openMenu
+-
+-->
+
 #### ```openMenu```
 Este método abre o *dropdown* de um menu principal. O parâmetro deve ser o
 exato nome do menu em Inglês e em *lowercase*, por exemplo:
@@ -44,6 +74,12 @@ Para os nomes com mais de uma palavra, deve-se usar *Camel Case*, por exemplo:
 sccpE2E.openMenu('registers');
 sccpE2E.openMenu('inputOutput');
 ```
+
+<!---
+-
+- selectSubmenu
+-
+-->
 
 #### ```selectSubmenu```
 Este método seleciona um submenu após o *dropdown* do menu principal correspondente
@@ -74,6 +110,12 @@ sccpE2E.openMenu('inputOutput'); // Necessário para o método abaixo funcionar
 sccpE2E.selectSubmenu('inputOutputProportional');
 ```
 
+<!---
+-
+- isMenuVisible
+-
+-->
+
 #### ```isMenuVisible```
 Este método verifica se um item de menu está visível.
 
@@ -84,6 +126,39 @@ expect(sccpE2E.isMenuVisible('registers')).toEqual(true); // PASS - Se o menu es
 
 expect(sccpE2E.isMenuVisible('inputOutput')).toEqual(false); // PASS - Se o menu não estiver visível
 ```
+
+<!---
+-
+- dropDatabase
+-
+-->
+
+#### ```dropDatabase```
+Este método faz uma requisição ao servidor para uma total limpeza do banco de dados. O endereço requisitado
+é o http://localhost:53993/api/Database/Drop.
+
+É preferível usar esse método dentro de um beforeAll (caso desejar limpar o DB para a *suite*)
+ou dentro de um beforeEach (caso desejar limpar o DB para cada *test case*).
+
+*Obs.: Este método põe a execução de comandos do WebDriver em hold até que a requisição HTTP seja resolvida.*
+
+```javascript
+// Limpa o DB antes de cada Suite
+beforeAll(function() {
+  sccpE2E.dropDatabase();
+})
+
+// Limpa o DB antes de cada Test Case
+beforeEach(function() {
+  sccpE2E.dropDatabase();
+})
+```
+
+<!---
+-
+- logInWithUsernameAndPassword
+-
+-->
 
 #### ```logInWithUsernameAndPassword```
 Este método preenche os campos de *username* e *password* e clica no botão
@@ -99,6 +174,12 @@ sccpE2E.logInWithUsernameAndPassword('sccp', 'venturus2016');
 sccpE2E.logInWithUsernameAndPassword('viewer', 'viewer');
 ```
 
+<!---
+-
+- logInWithRole
+-
+-->
+
 #### ```logInWithRole```
 Este método preenche os campos de *username* e *password* e clica no botão
 para entrar no sistema.
@@ -113,6 +194,12 @@ sccpE2E.logInWithRole('admin'); // Faz login com as credenciais sccp/venturus201
 sccpE2E.logInWithRole('viewer'); // Faz login com as credenciais viewer/viewer
 ```
 
+<!---
+-
+- logOut
+-
+-->
+
 #### ```logOut```
 Este método clica no botão de *logout* e sai do sistema.
 
@@ -121,6 +208,12 @@ Este método clica no botão de *logout* e sai do sistema.
 ```javascript
 sccpE2E.logOut();
 ```
+
+<!---
+-
+- disableHelpModalIfVisible
+-
+-->
 
 #### ```disableHelpModalIfVisible```
 Este método desabilita a opção "Mostrar ao abrir" e fecha o *modal* de ajuda na

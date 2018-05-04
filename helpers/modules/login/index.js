@@ -1,10 +1,12 @@
 function loginHelpers(config) {
   const _EC = protractor.ExpectedConditions;
 
-  const _usernameInput = element(by.id('986fff3e-3acb-405a-ae08-a4044481b962'));
-  const _passwordInput = element(by.id('9aa3d436-2a70-4480-bde8-fd04a448618f'));
-  const _enterButton = element(by.id('ed133c12-8c21-4313-a55a-7cd0c772cc7f'));
-  const _logOutButton = element(by.id('4aa30caf-e786-4219-8e46-50d399e03eaf'));
+  const _loginPage = config.elements.loginPage;
+
+  const _usernameInput = element(by.id(_loginPage.usernameInput));
+  const _passwordInput = element(by.id(_loginPage.passwordInput));
+  const _enterButton = element(by.id(_loginPage.enterButton));
+  const _logOutButton = element(by.id(_loginPage.logOutButton));
 
   return {
     logInWithUsernameAndPassword: function(username, password) {
@@ -19,8 +21,8 @@ function loginHelpers(config) {
     logInWithRole: function(role) {
       browser.wait(_EC.visibilityOf(_usernameInput))
         .then(function() {
-          _usernameInput.sendKeys(config.internals.roles[role].username);
-          _passwordInput.sendKeys(config.internals.roles[role].password);
+          _usernameInput.sendKeys(config.roles[role].username);
+          _passwordInput.sendKeys(config.roles[role].password);
           _enterButton.click();
         });
     },

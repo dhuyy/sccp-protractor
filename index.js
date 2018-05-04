@@ -7,10 +7,18 @@ const config = require('./config');
  * Main helpers
  */
 const {
+  openWebPage,
   openMenu,
   selectSubmenu,
   isMenuVisible
 } = require('./helpers/main')(config);
+
+/**
+ * Database helpers
+ */
+const {
+  dropDatabase
+} = require('./helpers/database')(config);
 
 /**
  * Login module helpers
@@ -29,12 +37,16 @@ const {
 } = require('./helpers/modules/sales')(config);
 
 module.exports = {
-  config: config.constants,
-  logInWithUsernameAndPassword,
-  logInWithRole,
-  logOut,
+  openWebPage,
   openMenu,
   selectSubmenu,
   isMenuVisible,
+
+  dropDatabase,
+
+  logInWithUsernameAndPassword,
+  logInWithRole,
+  logOut,
+
   disableHelpModalIfVisible
 };

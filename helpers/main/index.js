@@ -1,8 +1,14 @@
 function mainHelpers(config) {
+  const _menus = config.elements.components.menus;
+  const _submenus = config.elements.components.submenus;
+
   return {
+    openWebPage: function() {
+      browser.get(config.addresses.CLIENT);
+    },
+
     openMenu: function(menuNameParam) {
-      const menus = config.internals.menus;
-      let menuElement = menus.filter(menu => menuNameParam === menu.name)[0];
+      let menuElement = _menus.filter(menu => menuNameParam === menu.name)[0];
 
       if (menuElement) {
         element(by.id(menuElement.id)).click();
@@ -10,8 +16,7 @@ function mainHelpers(config) {
     },
 
     selectSubmenu: function(submenuNameParam) {
-      const submenus = config.internals.submenus;
-      let submenuElement = submenus.filter(submenu => submenuNameParam === submenu.name)[0];
+      let submenuElement = _submenus.filter(submenu => submenuNameParam === submenu.name)[0];
 
       if (submenuElement) {
         element(by.id(submenuElement.id)).click();
@@ -19,7 +24,7 @@ function mainHelpers(config) {
     },
 
     isMenuVisible: function(menuNameParam) {
-      const selectedMenu = config.internals.menus.filter(menu => {
+      const selectedMenu = _menus.filter(menu => {
         return menu.name === menuNameParam;
       })[0];
 
