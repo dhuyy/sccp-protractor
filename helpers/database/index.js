@@ -5,11 +5,11 @@ function databaseHelpers(config) {
 
   return {
     dropDatabase: function() {
-      const flow = protractor.promise.controlFlow(
-        `${_addresses.SERVER}${_addresses.DROP_DATABASE_ENDPOINT}`
-      );
+      const flow = protractor.promise.controlFlow();
 
-      flow.wait(request.get());
+      flow.wait(request.get(
+        `${_addresses.SERVER}${_addresses.DROP_DATABASE_ENDPOINT}`
+      ));
     }
   };
 }
