@@ -1,4 +1,4 @@
-const request = require('../../../../node_modules/request-promise');
+const request = require('request-promise');
 
 function databaseHelpers(config) {
   const _addresses = config.addresses;

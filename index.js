@@ -9,8 +9,10 @@ const config = require('./config');
 const {
   openWebPage,
   openMenu,
+  closeMenu,
   selectSubmenu,
-  isMenuVisible
+  isMenuVisible,
+  isSubmenuVisible
 } = require('./helpers/main')(config);
 
 /**
@@ -39,8 +41,10 @@ const {
 module.exports = {
   openWebPage,
   openMenu,
+  closeMenu,
   selectSubmenu,
   isMenuVisible,
+  isSubmenuVisible,
 
   dropDatabase,
 

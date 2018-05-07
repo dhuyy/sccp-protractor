@@ -9,8 +9,10 @@
 | ------ | ------ |
 | [openWebPage](#openwebpage) | Acessa o endereço *localhost:3000*. |
 | [openMenu](#openmenu) | Abre um item do menu principal. |
+| [closeMenu](#closemenu) | Fecha um item do menu principal. |
 | [selectSubmenu](#selectsubmenu) | Seleciona um item do submenu. |
 | [isMenuVisible](#ismenuvisible) | Verifica se um item de menu está visível. |
+| [isSubmenuVisible](#issubmenuvisible) | Verifica se um item de submenu está visível. |
 
 `Database`
 
@@ -77,6 +79,22 @@ sccpE2E.openMenu('inputOutput');
 
 <!---
 -
+- closeMenu
+-
+-->
+
+#### ```closeMenu```
+*Obs.: Este método tem a mesma lógica do método openMenu() e foi escrito
+apenas para dar mais sentido a leitura do código do test case.*
+
+```javascript
+sccpE2E.openMenu('registers'); // Abre
+
+sccpE2E.closeMenu('registers'); // Fecha
+```
+
+<!---
+-
 - selectSubmenu
 -
 -->
@@ -125,6 +143,23 @@ Este método verifica se um item de menu está visível.
 expect(sccpE2E.isMenuVisible('registers')).toEqual(true); // PASS - Se o menu estiver visível
 
 expect(sccpE2E.isMenuVisible('inputOutput')).toEqual(false); // PASS - Se o menu não estiver visível
+```
+
+<!---
+-
+- isSubmenuVisible
+-
+-->
+
+#### ```isSubmenuVisible```
+Este método verifica se um item de submenu está visível.
+
+*Obs.: Este método deve ser invocado após o método openMenu().*
+
+```javascript
+sccpE2E.openMenu('inputOutput'); // Abre o menu Input/Output
+
+expect(sccpE2E.isMenuVisible('analysis')).toEqual(true); // PASS - Se o submenu Analysis estiver visível
 ```
 
 <!---
