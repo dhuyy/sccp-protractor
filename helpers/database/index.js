@@ -1,7 +1,7 @@
 const request = require('request-promise');
 
-function databaseHelpers(config) {
-  const _addresses = config.addresses;
+function databaseHelpers(identifiers) {
+  const _addresses = identifiers.addresses;
 
   return {
     dropDatabase: function() {

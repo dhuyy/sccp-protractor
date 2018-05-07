@@ -28,7 +28,13 @@
 | [logInWithRole](#loginwithrole) | Login a partir de um *role*. |
 | [logOut](#logout) | Logout do sistema. |
 
-`Sales`
+`Registers > Periods`
+
+| Helper | Descrição |
+| ------ | ------ |
+| [addPeriods](#addperiods) | Cria um determinado número de períodos. |
+
+`Sales > Forecast Data`
 
 | Helper | Descrição |
 | ------ | ------ |
@@ -242,6 +248,22 @@ Este método clica no botão de *logout* e sai do sistema.
 
 ```javascript
 sccpE2E.logOut();
+```
+
+<!---
+-
+- addPeriods
+-
+-->
+
+#### ```addPeriods```
+Este método cria um determinado número de períodos. A quantidade de períodos
+criados é determinado por um número passado como parâmetro. 
+
+```javascript
+sccpE2E.addPeriods(); // Cria 1 período
+
+sccpE2E.addPeriods(5); // Cria 5 períodos
 ```
 
 <!---

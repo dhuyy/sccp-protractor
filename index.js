@@ -1,7 +1,15 @@
 /**
- * Config constants
+ * Identifiers
  */
-const config = require('./config');
+let identifiers;
+
+if (process.env.SCCP_PROTRACTOR_ENV === 'DEV') {
+  identifiers = require('../identifiers');
+}
+
+if (process.env.SCCP_PROTRACTOR_ENV === 'PROD') {
+  identifiers = require('../../identifiers');
+}
 
 /**
  * Main helpers
@@ -13,14 +21,14 @@ const {
   selectSubmenu,
   isMenuVisible,
   isSubmenuVisible
-} = require('./helpers/main')(config);
+} = require('./helpers/main')(identifiers);
 
 /**
  * Database helpers
  */
 const {
   dropDatabase
-} = require('./helpers/database')(config);
+} = require('./helpers/database')(identifiers);
 
 /**
  * Login module helpers
@@ -29,14 +37,21 @@ const {
   logInWithUsernameAndPassword,
   logInWithRole,
   logOut
-} = require('./helpers/modules/login')(config);
+} = require('./helpers/modules/login')(identifiers);
+
+/**
+ * Registers > Periods module helpers
+ */
+const {
+  addPeriods
+} = require('./helpers/modules/registers/periods')(identifiers);
 
 /**
  * Sales module helpers
  */
 const {
   disableHelpModalIfVisible
-} = require('./helpers/modules/sales')(config);
+} = require('./helpers/modules/sales')(identifiers);
 
 module.exports = {
   openWebPage,
@@ -51,6 +66,8 @@ module.exports = {
   logInWithUsernameAndPassword,
   logInWithRole,
   logOut,
+
+  addPeriods,
 
   disableHelpModalIfVisible
 };

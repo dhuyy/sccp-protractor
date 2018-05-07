@@ -1,7 +1,7 @@
-function loginHelpers(config) {
+function loginHelpers(identifiers) {
   const _EC = protractor.ExpectedConditions;
 
-  const _loginPage = config.elements.loginPage;
+  const _loginPage = identifiers.elements.loginPage;
 
   const _usernameInput = element(by.id(_loginPage.usernameInput));
   const _passwordInput = element(by.id(_loginPage.passwordInput));
@@ -21,8 +21,8 @@ function loginHelpers(config) {
     logInWithRole: function(role) {
       browser.wait(_EC.visibilityOf(_usernameInput))
         .then(function() {
-          _usernameInput.sendKeys(config.roles[role].username);
-          _passwordInput.sendKeys(config.roles[role].password);
+          _usernameInput.sendKeys(identifiers.roles[role].username);
+          _passwordInput.sendKeys(identifiers.roles[role].password);
           _enterButton.click();
         });
     },

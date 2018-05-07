@@ -1,6 +1,6 @@
-function mainHelpers(config) {
-  const _menus = config.elements.components.menus;
-  const _submenus = config.elements.components.submenus;
+function mainHelpers(identifiers) {
+  const _menus = identifiers.elements.components.menus;
+  const _submenus = identifiers.elements.components.submenus;
 
   function _openOrCloseMenu(menuNameParam) {
     let menuElement = _menus.filter(menu => menuNameParam === menu.name)[0];
@@ -12,7 +12,7 @@ function mainHelpers(config) {
 
   return {
     openWebPage: function() {
-      browser.get(config.addresses.CLIENT);
+      browser.get(identifiers.addresses.CLIENT);
     },
 
     openMenu: _openOrCloseMenu,
