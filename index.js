@@ -47,6 +47,20 @@ const {
 } = require('./helpers/modules/registers/periods')(identifiers);
 
 /**
+ * Registers > Products module helpers
+ */
+const {
+  linkSalesPartNumberInProductPage
+} = require('./helpers/modules/registers/products/products')(identifiers);
+
+/**
+ * Registers > Customer module helpers
+ */
+const {
+  linkPartNumberInCustomerPage
+} = require('./helpers/modules/registers/customer')(identifiers);
+
+/**
  * Sales module helpers
  */
 const {
@@ -68,6 +82,10 @@ module.exports = {
   logOut,
 
   addPeriods,
+
+  linkSalesPartNumberInProductPage,
+
+  linkPartNumberInCustomerPage,
 
   disableHelpModalIfVisible
 };

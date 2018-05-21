@@ -34,6 +34,18 @@
 | ------ | ------ |
 | [addPeriods](#addperiods) | Cria um determinado número de períodos. |
 
+`Registers > Products`
+
+| Helper | Descrição |
+| ------ | ------ |
+| [linkSalesPartNumberInProductPage](#linksalespartnumberinproductpage) | Faz a ligação de Part Number de Vendas com um novo Produto. |
+
+`Registers > Customer`
+
+| Helper | Descrição |
+| ------ | ------ |
+| [linkPartNumberInCustomerPage](#linkpartnumberincustomerpage) | Faz a ligação de Part Number com um novo Cliente. |
+
 `Sales > Forecast Data`
 
 | Helper | Descrição |
@@ -264,6 +276,36 @@ criados é determinado por um número passado como parâmetro.
 sccpE2E.addPeriods(); // Cria 1 período
 
 sccpE2E.addPeriods(5); // Cria 5 períodos
+```
+
+<!---
+-
+- linkSalesPartNumberInProductPage
+-
+-->
+
+#### ```linkSalesPartNumberInProductPage```
+Este método faz a ligação de um Part Number de Vendas na hora da criação de um Produto. O método irá
+clicar no botão de ligação, selecionar o Part Number de acordo com o parâmetro passado
+na chamada e clicar no botão de confirmar a ligação.
+
+```javascript
+sccpE2E.linkSalesPartNumberInProductPage('Dell X8237'); // Faz a ligação de um Produto com o PN de Vendas: Dell X8237
+```
+
+<!---
+-
+- linkPartNumberInCustomerPage
+-
+-->
+
+#### ```linkPartNumberInCustomerPage```
+Este método faz a ligação de um Part Number na hora da criação de um Cliente. O método irá
+clicar no botão de ligação, selecionar o Part Number de acordo com o parâmetro passado
+na chamada e clicar no botão de confirmar a ligação.
+
+```javascript
+sccpE2E.linkPartNumberInCustomerPage('Samsung Z0438'); // Faz a ligação de um Cliente com o PN: Samsung Z0438
 ```
 
 <!---
