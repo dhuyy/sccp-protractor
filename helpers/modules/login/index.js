@@ -1,7 +1,7 @@
 function loginHelpers(identifiers) {
   const _EC = protractor.ExpectedConditions;
 
-  const _loginPage = identifiers.elements.loginPage;
+  const _loginPage = identifiers.elements.general.loginPage;
 
   const _usernameInput = element(by.id(_loginPage.usernameInput));
   const _passwordInput = element(by.id(_loginPage.passwordInput));

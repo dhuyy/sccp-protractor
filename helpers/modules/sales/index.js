@@ -2,9 +2,9 @@ function salesHelpers(identifiers) {
 
   return {
     disableHelpModalIfVisible: function() {
-      const _salesPage = identifiers.elements.salesPage;
+      const _dataForecastPage = identifiers.elements.salesMenu.dataForecastPage;
 
-      const _closeHelpModalButton = element(by.id(_salesPage.closeHelpModalButton));
+      const _closeHelpModalButton = element(by.id(_dataForecastPage.closeHelpModalButton));
 
       _closeHelpModalButton.isDisplayed()
         .then(isVisible => {

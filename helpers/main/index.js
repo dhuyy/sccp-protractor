@@ -1,6 +1,6 @@
 function mainHelpers(identifiers) {
-  const _menus = identifiers.elements.components.menus;
-  const _submenus = identifiers.elements.components.submenus;
+  const _menus = identifiers.elements.general.menus;
+  const _submenus = identifiers.elements.general.submenus;
 
   function _openOrCloseMenu(menuNameParam) {
     let menuElement = _menus.filter(menu => menuNameParam === menu.name)[0];
