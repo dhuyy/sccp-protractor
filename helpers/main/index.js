@@ -1,4 +1,5 @@
 function mainHelpers(identifiers) {
+  let _firstTimeOpeningWebPage = true;
   const _menus = identifiers.elements.general.menus;
   const _submenus = identifiers.elements.general.submenus;
 
@@ -12,7 +13,10 @@ function mainHelpers(identifiers) {
 
   return {
     openWebPage: function() {
-      browser.get(identifiers.addresses.CLIENT);
+      if (_firstTimeOpeningWebPage) {
+        browser.get(identifiers.addresses.CLIENT);
+        _firstTimeOpeningWebPage = false;
+      }
     },
 
     openMenu: _openOrCloseMenu,
