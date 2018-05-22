@@ -8,7 +8,7 @@ function databaseHelpers(identifiers) {
       const flow = protractor.promise.controlFlow();
 
       flow.wait(request.get(
-        `${_addresses.SERVER}${_addresses.DROP_DATABASE_ENDPOINT}`
+        `${_addresses.DEV.SERVER}${_addresses.DROP_DATABASE_ENDPOINT}`
       ));
     }
   };

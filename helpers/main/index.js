@@ -14,7 +14,12 @@ function mainHelpers(identifiers) {
   return {
     openWebPage: function() {
       if (_firstTimeOpeningWebPage) {
-        browser.get(identifiers.addresses.CLIENT);
+        if (process.env.SCCP_PROTRACTOR_ENV === 'CI') {
+          browser.get(identifiers.CI.addresses.CLIENT);
+        } else {
+          browser.get(identifiers.DEV.addresses.CLIENT);
+        }
+
         _firstTimeOpeningWebPage = false;
       }
     },
