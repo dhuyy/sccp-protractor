@@ -15,9 +15,9 @@ function mainHelpers(identifiers) {
     openWebPage: function() {
       if (_firstTimeOpeningWebPage) {
         if (process.env.SCCP_PROTRACTOR_ENV === 'CI') {
-          browser.get(identifiers.CI.addresses.CLIENT);
+          browser.get(identifiers.addresses.CI.CLIENT);
         } else {
-          browser.get(identifiers.DEV.addresses.CLIENT);
+          browser.get(identifiers.addresses.DEV.CLIENT);
         }
 
         _firstTimeOpeningWebPage = false;
