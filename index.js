@@ -2,12 +2,13 @@
  * Identifiers
  */
 let identifiers;
+let ENV = process.env.SCCP_PROTRACTOR_ENV;
 
-if (process.env.SCCP_PROTRACTOR_ENV === 'DEV') {
+if (ENV === 'DEV') {
   identifiers = require('../identifiers');
 }
 
-if (process.env.SCCP_PROTRACTOR_ENV === 'PROD') {
+if ((ENV === 'CI') || (ENV === 'PROD')) {
   identifiers = require('../../identifiers');
 }
 
